@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:填写映射当前的Mapper接口，所有的增删改查的参数和返回值类型，
+		就可以直接填写缩写，不区分大小写，直接通过方法名去找类型-->
+<mapper namespace="com.roncoo.eshop.dao.UserMapper">
+    <resultMap type="com.roncoo.eshop.bean.User" id="resultMap">
+    	<result property="id" column="id"/>
+    	<result property="name" column="name"/>
+    	<result property="age" column="age"/>
+    </resultMap>
+	<select id="findAll" resultMap="resultMap">
+		select * from user
+	</select>
+	<insert id="insertUser" parameterType="com.roncoo.eshop.bean.User" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+		insert into user(name,age) values(#{name},#{age})
+	</insert>
+</mapper>

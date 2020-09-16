@@ -1,0 +1,25 @@
+server:
+  port: 9001
+spring:
+  thymeleaf:
+    check-template-location: false
+    cache: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+  datasource:
+    url: jdbc:mysql://localhost:3306/eshop?characterEncoding=UTF-8
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.roncoo.eshop.bean
+#show sql
+logging:
+  level:
+    com: 
+      roncoo:
+        eshop:
+          dao: debug
